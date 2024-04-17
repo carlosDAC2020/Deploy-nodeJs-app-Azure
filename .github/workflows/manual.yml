@@ -1,4 +1,3 @@
-name: Deploy plan in Azure
 
   on:
     push:
