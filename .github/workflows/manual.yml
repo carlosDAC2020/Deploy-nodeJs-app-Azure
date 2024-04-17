@@ -1,7 +1,5 @@
-# This is a basic workflow that is manually triggered
-
 name: Deploy plan in Azure
-#-----------------------------------------------------------------------------------
+
   on:
     push:
       branches:
