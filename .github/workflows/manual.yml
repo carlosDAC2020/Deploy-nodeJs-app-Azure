@@ -27,7 +27,7 @@
         - name: Build Docker image MySql databse
           run: cd db
           run: docker build -t cdapdev2020/db-node-server-app:${{ env.IMAGE_TAG }} .
-          echo "::set-output name=db_image_name::cdapdev2020/db-node-server-app:${{ env.IMAGE_TAG }}"
+          run: echo "::set-output name=db_image_name::cdapdev2020/db-node-server-app:${{ env.IMAGE_TAG }}"
   
         - name: Push Docker images
           run: docker push cdapdev2020/db-node-server-app:${{ env.IMAGE_TAG }}
