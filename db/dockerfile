@@ -1,0 +1,11 @@
+# Utiliza la imagen oficial de MySQL
+FROM mysql:latest
+
+# Establece la variable de entorno MYSQL_ROOT_PASSWORD con la contraseña deseada
+ENV MYSQL_ROOT_PASSWORD=123456
+
+# Exponer el puerto 3306 para que sea accesible desde fuera del contenedor
+EXPOSE 3306
+
+# Copia el script SQL a la carpeta /docker-entrypoint-initdb.d/ en la imagen
+COPY init.sql /docker-entrypoint-initdb.d/
