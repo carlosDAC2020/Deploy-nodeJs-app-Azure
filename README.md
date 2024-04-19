@@ -10,3 +10,5 @@ npm install
 ```
 node server.js
 ```
+
+# informe de deploy 
