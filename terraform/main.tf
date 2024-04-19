@@ -11,9 +11,7 @@ provider "azurerm" {
   features {}
 }
 
-variable "tag_id" {
-  type = string
-}
+
 
 # gurpo de recursos
 resource "azurerm_resource_group" "node-server-app" {
@@ -34,7 +32,7 @@ resource "azurerm_container_group" "db-node-app" {
   # Specify the container information
   container {
     name = "node-app"
-    image = "cdapdev2020/db-node-server-app:${var.tag_id}"
+    image = "cdapdev2020/db-node-server-app:20240419030150"
     cpu = "1"
     memory = "1"
 
@@ -42,5 +40,28 @@ resource "azurerm_container_group" "db-node-app" {
         port = 3306 
         protocol = "TCP"
     }
+  }
+}
+
+resource "azurerm_app_service_plan" "nodeapp" {
+  name                = "example-appserviceplan-node-app"
+  location            = azurerm_resource_group.node-server-app.location
+  resource_group_name = azurerm_resource_group.node-server-app.name
+
+  sku {
+    tier = "Basic"
+    size = "B1"
+  }
+}
+
+resource "azurerm_app_service" "example" {
+  name                = "example-appservice"
+  location            = azurerm_resource_group.node-server-app.location
+  resource_group_name = azurerm_resource_group.node-server-app.name
+  app_service_plan_id = azurerm_app_service_plan.nodeapp.id
+
+  site_config {
+    dotnet_framework_version = "v4.0"
+    scm_type                 = "LocalGit"
   }
 }
