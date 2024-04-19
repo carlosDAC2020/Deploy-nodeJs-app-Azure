@@ -11,6 +11,10 @@ provider "azurerm" {
   features {}
 }
 
+variable "tag_id" {
+  type = string
+}
+
 # gurpo de recursos
 resource "azurerm_resource_group" "node-server-app" {
   name = "node-server-app" 
@@ -30,7 +34,7 @@ resource "azurerm_container_group" "db-node-app" {
   # Specify the container information
   container {
     name = "node-app"
-    image = "cdapdev2020/db-node-server-app:20240417233850"
+    image = "cdapdev2020/db-node-server-app:${var.tag_id}"
     cpu = "1"
     memory = "1"
 
