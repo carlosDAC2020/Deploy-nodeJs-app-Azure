@@ -10,7 +10,11 @@ npm install
 node server.js
 ```
 
-# informe de deploy 
+# informe de deploy - Parcial 2
+- Cristal Herrera Arrieta
+- Carlos Agamez Palomino
+- Harold Lagares de Voz
+
 Se crea con ayuda de terrafom un app service q aloje nuestraaplicacion de node
 ademas de utilizar un container instance en el q corre nuestra base de datos en mysql
 
