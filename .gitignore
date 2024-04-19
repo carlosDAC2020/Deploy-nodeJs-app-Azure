@@ -1,3 +1,5 @@
 node_modules
 package-lock.json
 devops-examples/
+set_env_vars.sh
+llaves.txt
