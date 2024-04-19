@@ -12,3 +12,4 @@ node server.js
 ```
 
 # informe de deploy 
+parcial 2
